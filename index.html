@@ -1100,11 +1100,37 @@ calcDuration();
   }
 
   // Animate bond bar on load
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('bond-fill').style.width = '100%';
-    }, 300);
+  // Rank pip interaction
+let currentRank = 10;
+
+function setRank(rank) {
+  currentRank = rank;
+  const pips = document.querySelectorAll('.pip');
+  pips.forEach((pip, i) => {
+    pip.classList.remove('active', 'maxed');
+    if (i < rank) {
+      pip.classList.add('active');
+      if (i === 9 && rank === 10) pip.classList.add('maxed');
+    }
   });
+  const rankNum = document.getElementById('bondRankNum');
+  const rankStatus = document.querySelector('.bond-rank-status');
+  const bondLabel = document.getElementById('bond-percent');
+  rankNum.textContent = rank;
+  if (rank === 10) {
+    rankNum.style.color = '#ffaa00';
+    rankStatus.textContent = 'MAX BOND';
+    rankStatus.style.color = 'var(--accent2)';
+    bondLabel.textContent = 'RANK ' + rank + ' / MAX';
+  } else {
+    rankNum.style.color = 'var(--accent)';
+    rankStatus.textContent = 'RANK ' + rank + ' OF 10';
+    rankStatus.style.color = 'var(--text-dim)';
+    bondLabel.textContent = 'RANK ' + rank + ' / 10';
+  }
+}
+
+setRank(7);
 </script>
 
 
