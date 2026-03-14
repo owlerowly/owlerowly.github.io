@@ -88,7 +88,7 @@
   zoom: 1.25;
   }
 @media (max-width: 768px) {
-  html { zoom: 1; font-size: 100%; }
+  html { zoom: 1 !important; font-size: 100% !important; }
 
   .cards-grid { grid-template-columns: 1fr; }
 
@@ -103,7 +103,9 @@
     gap: 16px;
   }
 
-  .gov-title-block h1 { font-size: 1.8rem; }
+  .codename { font-size: 1.3rem !important; }
+
+  .gov-title-block h1 { font-size: 1.8rem !important; }
 
   .bond-inner { flex-direction: column; gap: 20px; }
 
@@ -112,10 +114,12 @@
   .arcana-inner { flex-direction: column; }
 
   .header-meta { flex-wrap: wrap; gap: 8px; }
+
   #bootScreen { padding: 24px 16px; font-size: 0.7rem; }
   #bootText { max-width: 100%; }
+
   .card-header-bar { flex-wrap: wrap; gap: 4px; }
-.codename { font-size: 1.1rem; word-break: break-word; white-space: normal; }}
+}
   body {
     background: var(--bg);
     color: var(--text);
@@ -848,6 +852,10 @@
     .card-body { flex-direction: column; }
     .card-photo-col { width: 100%; flex-direction: row; border-right: none; border-bottom: 1px solid var(--border); }
     .gov-title-block h1 { font-size: 1.8rem; }
+    .codename {
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.9rem;
   }
 </style>
 </head>
